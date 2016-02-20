@@ -45,7 +45,10 @@
       try {
         eval(errorCase[triggerErrorStr]);
       } catch (e) {
-        JSON.deepStringify(e);
+        ga('send', 'exception', {
+          'exDescription': JSON.deepStringify(e),
+          'exFatal': false
+        });
       }
     }
   </script>
