@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collector</title>
+  <script type="text/javascript">
+    JSON.deepStringify = function ( data ) {
+      function expandExtend(data) {
+        var result;
+        if ( data instanceof Array ) {
+          result = [];
+        } else if ( data instanceof Object ) {
+          result = {};
+        } else {
+          return data;
+        }
+
+        for ( var key in data ) {
+          result[key] = data[key];
+        }
+
+        return result;
+      }
+
+      return JSON.stringify(expandExtend(data));
+    };
+    var errorCase = {
+      RangeError : 'new Array(Number.MAX_SAFE_INTEGER)',
+      ReferenceError : 'a',
+      SyntaxError : '.',
+      TypeError : 'null.f()',
+      URIError : 'decodeURIComponent("%")'
+    };
+    for (var triggerErrorStr in errorCase) {
+      try {
+        eval(errorCase[triggerErrorStr]);
+      } catch (e) {
+        JSON.deepStringify(e);
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
