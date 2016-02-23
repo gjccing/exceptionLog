@@ -48,10 +48,8 @@
       try {
         eval(errorCase[triggerErrorStr]);
       } catch (e) {
-        ga('send', 'exception', {
-          'exDescription': JSON.deepStringify(e),
-          'exFatal': false
-        });
+        e._error_ = triggerErrorStr;
+        ga('send', 'exception', { 'exDescription': JSON.deepStringify(e) });
       }
     }
   </script>
