@@ -1,0 +1,22 @@
+{
+  "name": "exceptionlog",
+  "version": "1.0.0",
+  "description": "瀏覽器Error Object內容收集器。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjccing/exceptionLog.git"
+  },
+  "author": "HGW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gjccing/exceptionLog/issues"
+  },
+  "homepage": "https://github.com/gjccing/exceptionLog#readme",
+  "dependencies": {
+    "sqlite3": "^3.1.1"
+  }
+}
